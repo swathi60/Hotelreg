@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Registration Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+
+     <style>
+        h4{
+            color: white;
+        }
+        .a1{justify-content: space-between;}
+        .b1{ text-align: center; }
+        .c1{ padding: 2px; margin: 5px; justify-content: space-between;} 
+        .card{padding: 5px; background-color: rgb(241, 243, 243);}   
+     </style>
+     
+     <script type="text/javascript">
+       function reg() 
+       {
+        document.getElementById("lblname").innerHTML=document.getElementById("txtname").value;
+        document.getElementById("lbldate").innerHTML=document.getElementById("txtdate").value;
+        document.getElementById("lbldays").innerHTML=document.getElementById("txtdays").value;
+        document.getElementById("lblpersons").innerHTML=document.getElementById("txtpersons").value;
+        var rcost=0;
+        var aamount= document.getElementById("advance").value;
+         var room="";
+        var balamount=0; var aname=""; var amncost=0;
+        var ddays=document.getElementById("txtdays").value;
+        var dper=document.getElementById("txtpersons").value;
+        if(Delux.checked)
+        {
+          room=Delux.value;
+          rpic.src="images/R2.jpg";
+        rcost=2000;
+        }
+        if(Suit.checked)
+        {
+          room=Suit.value;
+          rpic.src="images/R3.jpg";
+          rcost=3000;
+        }
+        var amn1=document.getElementById("ac");
+        var amn2=document.getElementById("locker");
+        if(amn1.checked)
+        {
+          aname=amn1.value;
+          amncost=1000;
+          rcost+=amncost;
+        }
+        if(amn2.checked)
+        {
+          aname=amn2.value;
+          amncost=1000;
+          rcost+=amncost;
+        }
+        if(ddays>1)
+        {
+          rcost+=(ddays*1000);
+        }
+        if(dper>2)
+        {
+            rcost+=dper*1000;
+        }
+        balamount=rcost-aamount;
+
+        document.getElementById("lbladvance").innerHTML=document.getElementById("advance").value;
+        document.getElementById("lblroom").innerHTML=room;
+        document.getElementById("lblamn").innerHTML=aname;
+
+        document.getElementById("lblbalance").innerHTML=balamount;
+
+
+       }
+     </script>
+
+</head>
+<body class="container-fluid">
+    <header>
+       <div class=" text-center mt-2" style="border: 1px solid gray;"> <h2 >HOTEL REGISTRATION FORM</h2> </div>
+    </header>
+    <section>
+        <div>
+            <div class=" text-center m-1 bg-black " > <h4>Customer Info</h4> </div>
+            <div>
+                <dl class="row m-5 a1">
+                  <dt class="col-4 ">Customer Name</dt><dd class="col-8 "><input type="text"  id="txtname"></dd>
+                  <dt class="col-4 ">Check In Date</dt><dd class="col-8 "><input type="date"  id="txtdate"></dd>
+                  <dt class="col-4 ">Total Number Days</dt><dd class="col-8 "><input type="number" value="1" min="1" id="txtdays"></dd>
+                  <dt class="col-4 ">Total Number Of Persons</dt><dd class="col-8 "><input type="number"  min="1"id="txtpersons"></dd>
+                  
+                </dl>
+            </div>
+        </div>
+        <div>
+            <div class=" text-center m-1 bg-black " > <h4>Select Room Type</h4> </div>
+            <div class="row c1">
+              <div class="col-4 card ">
+                <img src="images/R2.jpg" alt="Delux" width="200px" height="200px" class="card-img-top">
+                 <div class="card-body"><h5><input type="radio" class="form-check-input" name="Room" id="Delux" value="Delux">Delux Room (&#8377;2000/-)</h5></div>
+              </div>
+              <div class="col-4 card">
+                <img src="images/R3.jpg" alt="Suit" width="200px" height="200px" class="card-img-top">
+                 <div class="card-body"><h5><input type="radio" class="form-check-input" name="Room" id="Suit" value="Suit">Suit Room (&#8377;3000/-)</h5></div>
+              </div>
+            </div>
+        </div>
+        <div>
+            <div class=" text-center m-1 bg-black " > <h4>Select Amenities</h4> </div>
+            <div class="row c1">
+                <div class="col-4 card ">
+                  <img src="images/R4.jpg" alt="AC" width="200px" height="200px" class="card-img-top">
+                   <div class="card-body"><h5><input type="checkbox" class="form-check-input" id="ac" value="ac">AC (&#8377;1000/-)</h5></div>
+                </div>
+                <div class="col-4 card">
+                  <img src="images/R5.jpg" alt="Locker" width="200px" height="200px" class="card-img-top">
+                   <div class="card-body"><h5><input type="checkbox" class="form-check-input"  id="locker" value="locker">LOCKER (&#8377; 1000/-)</h5></div>
+                </div>
+              </div>
+        </div>
+        <div>
+            <div class=" text-center m-1 bg-black " > <h4>Advace Amount</h4> </div>
+                <div style="text-align: center;"><label class="a2" style="color: black;" for="advace" name="advace">Advance Amount</label> <input type="number"  id="advance" min="1000" class="a3"></div> 
+            </div>
+        </div>
+        <div class="b1"><button class="btn btn-dark text-center m-4" style="color:white;" onclick="reg()" data-bs-toggle="modal" data-bs-target="#regis">Register</button>
+        <div id="regis" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Registration Details</h4>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col">
+                            <dl class="row">
+                               <dt class="col-5">Customer Name:</dt> <dd class="col-7" id="lblname"></dd>
+                               <dt class="col-5">Check In Date:</dt> <dd class="col-7" id="lbldate"></dd>
+                               <dt class="col-5">Total Number Of Days:</dt> <dd class="col-7" id="lbldays"></dd>
+                               <dt class="col-5">Total Number of Persons:</dt> <dd class="col-7" id="lblpersons"></dd>
+                               <dt class="col-5">Room Type:</dt> <dd class="col-7" id="lblroom"></dd>
+                               <dt class="col-5">Amenities:</dt> <dd class="col-7" id="lblamn"></dd>
+                               <dt class="col-5">Advance:</dt> <dd class="col-7" id="lbladvance"></dd>
+                               <dt class="col-5">Balance:</dt> <dd class="col-7" id="lblbalance"></dd>
+                            </dl>
+                           </div>
+                           <div> <img height="200" class="w-100" id="rpic"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </section>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>   
+</body>
+</html>
