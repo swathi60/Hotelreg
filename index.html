@@ -62,7 +62,7 @@
         }
         if(ddays>1)
         {
-          rcost+=(ddays*1000);
+          rcost=(ddays*rcost);
         }
         if(dper>2)
         {
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div>
-            <div class=" text-center m-1 bg-black " > <h4>Select Room Type</h4> </div>
+            <div class=" text-center m-1 bg-black " style="min-width:fit-content";> <h4>Select Room Type</h4> </div>
             <div class="row c1">
               <div class="col-4 card ">
                 <img src="R2.jpg" alt="Delux" width="200px" height="200px" class="card-img-top">
